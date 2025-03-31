@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameCoach AI - Revolucionando el Fútbol Formativo con Inteligencia Artificial</title>
+    <title>GameCoach AI - Inteligencia Artificial para Entrenadores de Fútbol</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script>
         tailwind.config = {
             theme: {
@@ -15,12 +16,23 @@
                     },
                     colors: {
                         primary: '#4F46E5',
-                        secondary: '#312E81',
+                        secondary: '#1E40AF',
                         accent: '#10B981',
-                        dark: '#1F2937',
+                        dark: '#111827',
                         light: '#F9FAFB',
-                        gradientStart: '#6366F1',
-                        gradientEnd: '#8B5CF6',
+                        ai: '#7C3AED',
+                        aiLight: '#8B5CF6',
+                        aiDark: '#6D28D9',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
                     }
                 }
             }
@@ -28,48 +40,82 @@
     </script>
     <style>
         .hero-gradient {
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.95) 0%, rgba(99, 102, 241, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.95) 0%, rgba(124, 58, 237, 0.95) 100%);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
         }
         .feature-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
+        .decision-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+        }
+        .decision-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .ai-badge {
+            background: linear-gradient(90deg, #7C3AED 0%, #8B5CF6 100%);
+        }
+        .pulse-animation {
+            animation: pulse-slow 3s infinite;
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        .section-divider {
+            height: 80px;
+            background: linear-gradient(180deg, rgba(249, 250, 251, 1) 0%, rgba(255, 255, 255, 1) 100%);
+        }
+        .tech-gradient {
+            background: linear-gradient(135deg, #111827 0%, #1F2937 100%);
+        }
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
         .pricing-card {
             transition: all 0.3s ease;
+            background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
         }
         .pricing-card:hover {
-            transform: scale(1.03);
+            transform: translateY(-5px);
+        }
+        .footer-gradient {
+            background: linear-gradient(135deg, #111827 0%, #1F2937 100%);
         }
         .glow {
-            box-shadow: 0 0 15px rgba(79, 70, 229, 0.5);
-        }
-        .btn-glow:hover {
-            box-shadow: 0 0 15px rgba(79, 70, 229, 0.7);
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
         }
     </style>
 </head>
-<body class="font-sans bg-light text-dark">
+<body class="font-sans bg-gray-50 text-gray-800">
     <!-- Header/Navigation -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
+                <div class="bg-ai p-2 rounded-lg mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                 </div>
-                <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">GameCoach AI</span>
+                <span class="text-2xl font-bold text-dark">Game<span class="text-ai">Coach</span> <span class="text-aiLight">AI</span></span>
             </div>
             <nav class="hidden md:flex space-x-8">
-                <a href="#inicio" class="text-gray-600 hover:text-primary font-medium transition-colors">Inicio</a>
-                <a href="#features" class="text-gray-600 hover:text-primary font-medium transition-colors">Características</a>
-                <a href="#tecnologia" class="text-gray-600 hover:text-primary font-medium transition-colors">Tecnología</a>
-                <a href="#comunidad" class="text-gray-600 hover:text-primary font-medium transition-colors">Comunidad</a>
-                <a href="#precios" class="text-gray-600 hover:text-primary font-medium transition-colors">Precios</a>
-                <a href="#contacto" class="text-gray-600 hover:text-primary font-medium transition-colors">Contacto</a>
+                <a href="#inicio" class="text-gray-600 hover:text-ai font-medium transition duration-300">Inicio</a>
+                <a href="#beneficios" class="text-gray-600 hover:text-ai font-medium transition duration-300">Beneficios</a>
+                <a href="#decisiones" class="text-gray-600 hover:text-ai font-medium transition duration-300">Toma de Decisiones</a>
+                <a href="#tecnologia" class="text-gray-600 hover:text-ai font-medium transition duration-300">Tecnología</a>
+                <a href="#comunidad" class="text-gray-600 hover:text-ai font-medium transition duration-300">Comunidad</a>
+                <a href="#contacto" class="text-gray-600 hover:text-ai font-medium transition duration-300">Contacto</a>
             </nav>
-            <a href="#contacto" class="hidden md:block bg-primary hover:bg-secondary text-white font-bold py-2 px-6 rounded-lg transition-all btn-glow">Demo Gratis</a>
+            <div class="hidden md:block">
+                <a href="#contacto" class="bg-ai hover:bg-aiDark text-white font-medium py-2 px-6 rounded-lg transition duration-300">Prueba Gratis</a>
+            </div>
             <button class="md:hidden focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -79,240 +125,440 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="inicio" class="relative hero-gradient text-white py-24 md:py-32">
-        <div class="absolute inset-0 bg-black opacity-20"></div>
+    <section id="inicio" class="relative hero-gradient text-white py-20 md:py-32 overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-ai to-transparent opacity-30"></div>
+            <div class="absolute bottom-0 right-0 w-full h-full bg-gradient-to-tl from-ai to-transparent opacity-30"></div>
+        </div>
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-12 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">Revoluciona tu <span class="bg-clip-text text-transparent bg-gradient-to-r from-accent to-white">Método de Entrenamiento</span></h1>
-                    <p class="text-xl md:text-2xl mb-8 max-w-lg">La primera plataforma con IA que te ayuda a crear sesiones de entrenamiento personalizadas, analizar jugadores y conectar con una comunidad global de entrenadores.</p>
+                    <div class="flex items-center mb-5">
+                        <span class="ai-badge text-xs font-semibold px-3 py-1 rounded-full text-white uppercase tracking-wider">Tecnología AI</span>
+                        <span class="ml-3 text-sm font-medium bg-white bg-opacity-20 px-3 py-1 rounded-full">NUEVO</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate__animated animate__fadeIn">Revoluciona tu metodología con <span class="text-aiLight">GameCoach AI</span></h1>
+                    <p class="text-xl mb-8 text-gray-100 max-w-lg">La primera plataforma que combina inteligencia artificial con experiencia real en fútbol formativo para optimizar tus decisiones y entrenamientos.</p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#contacto" class="bg-accent hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg text-center transition-all duration-300 transform hover:scale-105 glow">Prueba Gratis</a>
-                        <a href="#tecnologia" class="bg-white hover:bg-gray-100 text-primary font-bold py-4 px-8 rounded-lg text-center transition-all duration-300 transform hover:scale-105">Ver Demo</a>
+                        <a href="#contacto" class="bg-ai hover:bg-aiDark text-white font-bold py-3 px-8 rounded-lg text-center transition duration-300 pulse-animation glow">Prueba Gratis</a>
+                        <a href="#tecnologia" class="bg-white hover:bg-gray-100 text-dark font-bold py-3 px-8 rounded-lg text-center transition duration-300">Cómo Funciona</a>
                     </div>
                     <div class="mt-8 flex items-center">
                         <div class="flex -space-x-2">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Usuario">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Usuario">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Usuario">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-10 h-10 rounded-full border-2 border-white">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="w-10 h-10 rounded-full border-2 border-white">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="User" class="w-10 h-10 rounded-full border-2 border-white">
                         </div>
-                        <p class="ml-4 text-blue-100">+500 entrenadores ya usan GameCoach AI</p>
+                        <div class="ml-4">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+                            <p class="text-sm text-gray-200 mt-1">+250 entrenadores satisfechos</p>
+                        </div>
                     </div>
                 </div>
-                <div class="md:w-1/2">
-                    <div class="relative">
-                        <img src="https://img.freepik.com/free-photo/side-view-football-trainer-teaching-kids_23-2149742045.jpg?t=st=1742986168~exp=1742989768~hmac=3cc46c266579914fee3e5e0d9124459ede3e83cd6fa29dc56877f90f1b2cdd62&w=740" alt="Entrenador enseñando a niños" class="rounded-xl shadow-2xl border-4 border-white transform rotate-2">
-                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg w-64">
+                <div class="md:w-1/2 relative">
+                    <div class="relative floating animate__animated animate__fadeIn">
+                        <img src="https://img.freepik.com/free-photo/football-coach-using-digital-tablet_23-2149742033.jpg" alt="Entrenador usando tecnología" class="rounded-xl shadow-2xl border-8 border-white transform rotate-2">
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg z-10">
                             <div class="flex items-center">
-                                <div class="bg-primary p-2 rounded-lg mr-3">
+                                <div class="bg-ai p-2 rounded-lg">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                                     </svg>
                                 </div>
-                                <div>
-                                    <p class="font-bold text-gray-800">Sesiones optimizadas</p>
-                                    <p class="text-sm text-gray-600">+35% eficiencia</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="absolute -top-6 -right-6 bg-white p-4 rounded-xl shadow-lg w-64">
-                            <div class="flex items-center">
-                                <div class="bg-accent p-2 rounded-lg mr-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-gray-800">Análisis en tiempo real</p>
-                                    <p class="text-sm text-gray-600">Tecnología patentada</p>
+                                <div class="ml-3">
+                                    <p class="text-xs text-gray-500">Recomendación AI</p>
+                                    <p class="font-bold text-dark">Cambio táctico: 82% efectividad</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-aiLight rounded-full opacity-20"></div>
+                    <div class="absolute -bottom-10 -right-10 w-20 h-20 bg-accent rounded-full opacity-20"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Logos Section -->
-    <section class="py-12 bg-gray-50">
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
         <div class="container mx-auto px-6">
-            <p class="text-center text-gray-500 mb-8">Confían en nosotros</p>
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-                <div class="text-2xl font-bold text-gray-700 opacity-70">Federación Española</div>
-                <div class="text-2xl font-bold text-gray-700 opacity-70">LaLiga</div>
-                <div class="text-2xl font-bold text-gray-700 opacity-70">RFEF</div>
-                <div class="text-2xl font-bold text-gray-700 opacity-70">UEFA</div>
-                <div class="text-2xl font-bold text-gray-700 opacity-70">FIFA</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-8 border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition duration-300 transform hover:scale-105">
+                    <div class="text-5xl font-bold text-ai mb-3">+87%</div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">Mejora en decisiones</h3>
+                    <p class="text-gray-600">Entrenadores que mejoraron su toma de decisiones tácticas</p>
+                </div>
+                <div class="p-8 border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition duration-300 transform hover:scale-105">
+                    <div class="text-5xl font-bold text-ai mb-3">3.5x</div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">Más eficiencia</h3>
+                    <p class="text-gray-600">Aumento en la eficiencia de los entrenamientos</p>
+                </div>
+                <div class="p-8 border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition duration-300 transform hover:scale-105">
+                    <div class="text-5xl font-bold text-ai mb-3">24/7</div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">Asistencia AI</h3>
+                    <p class="text-gray-600">Asistencia disponible en cualquier momento</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-20 bg-white">
+    <!-- Benefits Section -->
+    <section id="beneficios" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="inline-block bg-primary bg-opacity-10 text-primary font-semibold px-4 py-2 rounded-full mb-4">Potencia tu Método</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Herramientas diseñadas para <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">entrenadores modernos</span></h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">GameCoach AI combina inteligencia artificial con metodologías probadas para ofrecerte la mejor plataforma de formación para entrenadores</p>
+                <span class="inline-block bg-aiLight bg-opacity-10 text-ai font-semibold px-4 py-2 rounded-full mb-4">Beneficios</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Potencia tu Entrenamiento con AI</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">GameCoach AI analiza miles de datos para ofrecerte recomendaciones personalizadas en tiempo real</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-lg feature-card transition-all duration-300 border border-gray-100">
-                    <div class="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center mb-6 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <!-- Tarjeta 1 -->
+                <div class="feature-card p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-gradient-to-br from-ai to-aiLight rounded-xl flex items-center justify-center mb-6 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Generador de Sesiones con IA</h3>
-                    <p class="text-gray-600 mb-4">Crea sesiones de entrenamiento personalizadas en minutos basadas en las necesidades específicas de tu equipo y jugadores individuales.</p>
-                    <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                            </svg>
-                            Adaptadas a cada categoría formativa
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                            </svg>
-                            Objetivos medibles
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                            </svg>
-                            Progresión pedagógica
-                        </li>
-                    </ul>
+                    <h3 class="text-xl font-bold text-dark mb-3">Análisis Predictivo</h3>
+                    <p class="text-gray-600 mb-4">Nuestra AI anticipa comportamientos del rival y de tus jugadores para prepararte mejor.</p>
+                    <a href="#" class="text-ai hover:text-aiDark font-medium inline-flex items-center">
+                        Saber más
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
                 </div>
                 
-                <div class="bg-white p-8 rounded-2xl shadow-lg feature-card transition-all duration-300 border border-gray-100">
-                    <div class="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center mb-6 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <!-- Tarjeta 2 -->
+                <div class="feature-card p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-gradient-to-br from-ai to-aiLight rounded-xl flex items-center justify-center mb-6 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Analítica Avanzada</h3>
-                    <p class="text-gray-600 mb-4">Sistema de seguimiento y análisis de jugadores con tecnología de visión por computadora para evaluar rendimiento y progreso.</p>
-                    <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                            </svg>
-                            Detección automática de habilidades
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                            </svg>
-                            Informes personalizados
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                            </svg>
-                            Comparativas evolutivas
-                        </li>
-                    </ul>
+                    <h3 class="text-xl font-bold text-dark mb-3">Personalización</h3>
+                    <p class="text-gray-600 mb-4">Planes de entrenamiento adaptados a tus jugadores y filosofía de juego.</p>
+                    <a href="#" class="text-ai hover:text-aiDark font-medium inline-flex items-center">
+                        Saber más
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
                 </div>
                 
-                <div class="bg-white p-8 rounded-2xl shadow-lg feature-card transition-all duration-300 border border-gray-100">
-                    <div class="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center mb-6 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <!-- Tarjeta 3 -->
+                <div class="feature-card p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-gradient-to-br from-ai to-aiLight rounded-xl flex items-center justify-center mb-6 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Comunidad Global</h3>
-                    <p class="text-gray-600 mb-4">Conecta con miles de entrenadores, comparte sesiones, resuelve dudas y colabora en proyectos innovadores.</p>
-                    <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                            </svg>
-                            Foros especializados por categorías
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                            </svg>
-                            Biblioteca colaborativa
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                            </svg>
-                            Eventos exclusivos
-                        </li>
-                    </ul>
+                    <h3 class="text-xl font-bold text-dark mb-3">Comunidad AI</h3>
+                    <p class="text-gray-600 mb-4">Conecta con otros entrenadores y comparte conocimientos con apoyo de nuestra AI.</p>
+                    <a href="#" class="text-ai hover:text-aiDark font-medium inline-flex items-center">
+                        Saber más
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Tarjeta 4 -->
+                <div class="feature-card p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-gradient-to-br from-ai to-aiLight rounded-xl flex items-center justify-center mb-6 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Reportes Automáticos</h3>
+                    <p class="text-gray-600 mb-4">Generación instantánea de informes de rendimiento y progreso.</p>
+                    <a href="#" class="text-ai hover:text-aiDark font-medium inline-flex items-center">
+                        Saber más
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Tarjeta 5 -->
+                <div class="feature-card p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-gradient-to-br from-ai to-aiLight rounded-xl flex items-center justify-center mb-6 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Certificación AI</h3>
+                    <p class="text-gray-600 mb-4">Certificados digitales con blockchain que validan tu formación.</p>
+                    <a href="#" class="text-ai hover:text-aiDark font-medium inline-flex items-center">
+                        Saber más
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Tarjeta 6 -->
+                <div class="feature-card p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-gradient-to-br from-ai to-aiLight rounded-xl flex items-center justify-center mb-6 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Planes Accesibles</h3>
+                    <p class="text-gray-600 mb-4">Tecnología de elite a precios adaptados a entrenadores en formación.</p>
+                    <a href="#" class="text-ai hover:text-aiDark font-medium inline-flex items-center">
+                        Saber más
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technology Section -->
-    <section id="tecnologia" class="py-20 bg-gradient-to-r from-gray-50 to-gray-100">
+    <!-- Decision Making Section -->
+    <section id="decisiones" class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
-                    <span class="inline-block bg-primary bg-opacity-10 text-primary font-semibold px-4 py-2 rounded-full mb-4">Tecnología Innovadora</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Inteligencia Artificial al servicio del <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">fútbol formativo</span></h2>
-                    <p class="text-gray-600 mb-8 text-lg">Nuestra plataforma utiliza algoritmos de aprendizaje automático entrenados con miles de horas de sesiones de entrenamiento profesional para ofrecerte recomendaciones personalizadas.</p>
+            <div class="text-center mb-16">
+                <span class="inline-block bg-aiLight bg-opacity-10 text-ai font-semibold px-4 py-2 rounded-full mb-4">Toma de Decisiones</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Toma de Decisiones con GameCoach AI</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Nuestra inteligencia artificial analiza miles de partidos para ofrecerte las mejores opciones en tiempo real</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Ejemplo 1 -->
+                <div class="decision-card p-8 rounded-xl border-l-4 border-ai">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-ai text-white text-xs font-bold px-3 py-1 rounded">Caso Real</span>
+                        <span class="ml-3 text-sm text-gray-500">Minuto 65 - Partido clave</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Expulsión del central</h3>
+                    <p class="text-gray-600 mb-4"><strong>Situación:</strong> Vas 1-0 arriba en partido de ascenso y te expulsan al central.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-dark mb-3">Recomendación AI:</h4>
+                        <div class="bg-purple-50 p-4 rounded-lg mb-2 border border-purple-100">
+                            <div class="flex items-center">
+                                <div class="bg-ai p-2 rounded-lg mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                <p class="text-ai font-medium">Cambiar a 5-3-1 (82% efectividad)</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500">Basado en 127 casos similares analizados</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-dark mb-3">Alternativas:</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-500" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <span class="ml-2 text-gray-600">Sacar delantero por defensa (67% efectividad)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-500" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <span class="ml-2 text-gray-600">Mantener sistema (54% efectividad)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Ejemplo 2 -->
+                <div class="decision-card p-8 rounded-xl border-l-4 border-ai">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-ai text-white text-xs font-bold px-3 py-1 rounded">Caso Real</span>
+                        <span class="ml-3 text-sm text-gray-500">Minuto 75 - Empate 1-1</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Ventaja numérica sin romper</h3>
+                    <p class="text-gray-600 mb-4"><strong>Situación:</strong> Rival con 10 jugadores pero defensa sólida.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-dark mb-3">Recomendación AI:</h4>
+                        <div class="bg-purple-50 p-4 rounded-lg mb-2 border border-purple-100">
+                            <div class="flex items-center">
+                                <div class="bg-ai p-2 rounded-lg mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                <p class="text-ai font-medium">Introducir extremo rápido (78% efectividad)</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500">Basado en 93 casos similares analizados</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-dark mb-3">Alternativas:</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-500" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <span class="ml-2 text-gray-600">Jugar con dos delanteros (65% efectividad)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-500" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <span class="ml-2 text-gray-600">Presionar alto (71% efectividad)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Ejemplo 3 -->
+                <div class="decision-card p-8 rounded-xl border-l-4 border-ai">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-ai text-white text-xs font-bold px-3 py-1 rounded">Caso Real</span>
+                        <span class="ml-3 text-sm text-gray-500">Minuto 30 - Partido igualado</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Lesión del organizador</h3>
+                    <p class="text-gray-600 mb-4"><strong>Situación:</strong> Tu mediocentro creativo se lesiona en partido clave.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-dark mb-3">Recomendación AI:</h4>
+                        <div class="bg-purple-50 p-4 rounded-lg mb-2 border border-purple-100">
+                            <div class="flex items-center">
+                                <div class="bg-ai p-2 rounded-lg mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                <p class="text-ai font-medium">Cambiar a 4-4-2 clásico (76% efectividad)</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500">Basado en 154 casos similares analizados</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-dark mb-3">Alternativas:</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-500" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <span class="ml-2 text-gray-600">Meter suplente similar (68% efectividad)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-500" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <span class="ml-2 text-gray-600">Distribuir funciones (63% efectividad)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">GameCoach AI analiza más de 500 variables en tiempo real para ofrecerte las mejores recomendaciones.</p>
+                <a href="#contacto" class="inline-block bg-ai hover:bg-aiDark text-white font-bold py-3 px-8 rounded-lg transition duration-300 glow">Prueba el Simulador de Decisiones</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Technology Section -->
+    <section id="tecnologia" class="py-20 tech-gradient text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <span class="inline-block bg-white bg-opacity-10 text-white font-semibold px-4 py-2 rounded-full mb-4">Tecnología</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Cómo Funciona GameCoach AI</h2>
+                    <p class="text-xl mb-8 text-gray-300">Nuestra inteligencia artificial ha sido entrenada con más de 10,000 partidos de fútbol formativo para ofrecerte insights únicos.</p>
                     
                     <div class="space-y-6">
-                        <div class="flex">
-                            <div class="flex-shrink-0 bg-primary bg-opacity-10 p-3 rounded-lg mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                                </svg>
+                        <div class="flex items-start bg-gray-900 bg-opacity-50 p-5 rounded-xl">
+                            <div class="flex-shrink-0 bg-ai rounded-xl p-3 mt-1">
+                                <span class="text-white font-bold">1</span>
                             </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">Visión por Computadora</h3>
-                                <p class="text-gray-600">Analiza videos de entrenamientos y partidos para extraer datos de rendimiento automáticamente.</p>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold">Recopilación de Datos</h3>
+                                <p class="text-gray-300">Analizamos estadísticas en tiempo real de tus partidos y entrenamientos.</p>
                             </div>
                         </div>
                         
-                        <div class="flex">
-                            <div class="flex-shrink-0 bg-primary bg-opacity-10 p-3 rounded-lg mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
+                        <div class="flex items-start bg-gray-900 bg-opacity-50 p-5 rounded-xl">
+                            <div class="flex-shrink-0 bg-ai rounded-xl p-3 mt-1">
+                                <span class="text-white font-bold">2</span>
                             </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">App Móvil Integrada</h3>
-                                <p class="text-gray-600">Registra datos en tiempo real durante los entrenamientos con nuestra aplicación móvil.</p>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold">Procesamiento AI</h3>
+                                <p class="text-gray-300">Nuestros algoritmos comparan con miles de situaciones similares.</p>
                             </div>
                         </div>
                         
-                        <div class="flex">
-                            <div class="flex-shrink-0 bg-primary bg-opacity-10 p-3 rounded-lg mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                                </svg>
+                        <div class="flex items-start bg-gray-900 bg-opacity-50 p-5 rounded-xl">
+                            <div class="flex-shrink-0 bg-ai rounded-xl p-3 mt-1">
+                                <span class="text-white font-bold">3</span>
                             </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">Dashboard Avanzado</h3>
-                                <p class="text-gray-600">Visualiza todos los datos de tu equipo en paneles personalizables y fáciles de entender.</p>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold">Recomendaciones</h3>
+                                <p class="text-gray-300">Obtienes opciones tácticas con porcentajes de efectividad probada.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start bg-gray-900 bg-opacity-50 p-5 rounded-xl">
+                            <div class="flex-shrink-0 bg-ai rounded-xl p-3 mt-1">
+                                <span class="text-white font-bold">4</span>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold">Aprendizaje Continuo</h3>
+                                <p class="text-gray-300">El sistema mejora con cada decisión que tomas y sus resultados.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="md:w-1/2">
-                    <div class="relative">
-                        <img src="https://img.freepik.com/free-photo/football-trainer-teaching-his-pupils_23-2149708032.jpg?t=st=1742986361~exp=1742989961~hmac=ef1e2d0bae4e1458babf98d9327820add0b2232791551f469a9ed4eb5ca5d7c6&w=1380" alt="Tecnología en el fútbol" class="rounded-2xl shadow-xl border-4 border-white transform -rotate-1">
-                        <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-lg w-72">
-                            <div class="flex items-center mb-3">
-                                <div class="bg-gradient-to-r from-primary to-secondary p-2 rounded-lg mr-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                <div class="lg:w-1/2">
+                    <div class="relative floating">
+                        <img src="https://img.freepik.com/free-photo/digital-tablet-screen-with-football-tactics_23-2149742034.jpg" alt="Tecnología AI para fútbol" class="rounded-xl shadow-2xl border-8 border-gray-800 transform -rotate-2">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-5 rounded-xl shadow-lg z-10 w-64">
+                            <div class="flex items-center">
+                                <div class="bg-ai p-2 rounded-lg mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                                     </svg>
                                 </div>
-                                <h4 class="font-bold text-gray-800">+89%</h4>
+                                <div>
+                                    <p class="text-xs text-gray-500">Análisis en tiempo real</p>
+                                    <p class="font-bold text-dark">87% precisión</p>
+                                </div>
                             </div>
-                            <p class="text-sm text-gray-600">de los entrenadores reportan mejoras significativas en sus metodologías al usar GameCoach AI</p>
                         </div>
                     </div>
                 </div>
@@ -321,16 +567,16 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="inline-block bg-primary bg-opacity-10 text-primary font-semibold px-4 py-2 rounded-full mb-4">Testimonios</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Lo que dicen <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">nuestros entrenadores</span></h2>
+                <span class="inline-block bg-aiLight bg-opacity-10 text-ai font-semibold px-4 py-2 rounded-full mb-4">Testimonios</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Entrenadores que Confían en GameCoach AI</h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">Experiencias reales de profesionales que han transformado su manera de entrenar</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card p-8 rounded-xl">
                     <div class="flex items-center mb-4">
                         <div class="text-yellow-400 flex">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -350,17 +596,17 @@
                             </svg>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-6 italic">"GameCoach AI ha transformado completamente mi manera de planificar los entrenamientos. Ahora dedico un 70% menos de tiempo a la preparación y mis jugadores han mejorado notablemente su rendimiento."</p>
-                    <div class="flex items-center">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Juan Pérez" class="w-12 h-12 rounded-full mr-4 border-2 border-primary">
+                    <p class="text-gray-600 mb-6 italic">"GameCoach AI me ayudó a ganar el ascenso con decisiones clave en los últimos minutos. Su análisis predictivo es increíble."</p>
+                    <div class="flex items-center pt-4 border-t border-gray-100">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Juan Pérez" class="w-12 h-12 rounded-full mr-4">
                         <div>
-                            <h4 class="font-bold text-gray-800">Juan Pérez</h4>
-                            <p class="text-gray-600 text-sm">Entrenador Sub-15 | Madrid</p>
+                            <h4 class="font-bold text-dark">Juan Pérez</h4>
+                            <p class="text-gray-600 text-sm">Entrenador Sub-15, Campeón Liga Juvenil</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="testimonial-card p-8 rounded-xl">
                     <div class="flex items-center mb-4">
                         <div class="text-yellow-400 flex">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -380,17 +626,17 @@
                             </svg>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-6 italic">"La comunidad de GameCoach es increíble. He aprendido más en 3 meses interactuando con otros entrenadores que en los últimos 2 años por mi cuenta."</p>
-                    <div class="flex items-center">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="María González" class="w-12 h-12 rounded-full mr-4 border-2 border-primary">
+                    <p class="text-gray-600 mb-6 italic">"La herramienta de análisis de jugadores me ha permitido desarrollar el potencial de cada uno de mis futbolistas como nunca antes."</p>
+                    <div class="flex items-center pt-4 border-t border-gray-100">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="María González" class="w-12 h-12 rounded-full mr-4">
                         <div>
-                            <h4 class="font-bold text-gray-800">María González</h4>
-                            <p class="text-gray-600 text-sm">Entrenadora Sub-13 | Barcelona</p>
+                            <h4 class="font-bold text-dark">María González</h4>
+                            <p class="text-gray-600 text-sm">Directora Técnica Academia Sub-13</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="testimonial-card p-8 rounded-xl">
                     <div class="flex items-center mb-4">
                         <div class="text-yellow-400 flex">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -410,12 +656,12 @@
                             </svg>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-6 italic">"Las herramientas de análisis me han permitido detectar talentos en mi cantera que de otra forma hubieran pasado desapercibidos. Un cambio radical para nuestro club."</p>
-                    <div class="flex items-center">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Carlos Rodríguez" class="w-12 h-12 rounded-full mr-4 border-2 border-primary">
+                    <p class="text-gray-600 mb-6 italic">"El módulo de scouting AI me ha ahorrado cientos de horas en la búsqueda de talento para nuestra cantera."</p>
+                    <div class="flex items-center pt-4 border-t border-gray-100">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Carlos Rodríguez" class="w-12 h-12 rounded-full mr-4">
                         <div>
-                            <h4 class="font-bold text-gray-800">Carlos Rodríguez</h4>
-                            <p class="text-gray-600 text-sm">Director Técnico | Sevilla FC Cantera</p>
+                            <h4 class="font-bold text-dark">Carlos Rodríguez</h4>
+                            <p class="text-gray-600 text-sm">Director de Scouting, Club Profesional</p>
                         </div>
                     </div>
                 </div>
@@ -424,387 +670,318 @@
     </section>
 
     <!-- Community Section -->
-    <section id="comunidad" class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+    <section id="comunidad" class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-12 md:mb-0">
-                    <img src="https://img.freepik.com/free-photo/close-up-smiley-women-discussing-strategy_23-2148634567.jpg?t=st=1742986385~exp=1742989985~hmac=3bc6f4ca256afb1213b8965552eace36a79c51ef0d400cb713c0c998d3194022&w=1380" alt="Comunidad de entrenadores" class="rounded-2xl shadow-xl border-4 border-white transform rotate-1">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <img src="https://img.freepik.com/free-photo/close-up-smiley-women-discussing-strategy_23-2148634567.jpg" alt="Comunidad de entrenadores" class="rounded-xl shadow-xl border-8 border-white transform rotate-2 floating">
                 </div>
-                <div class="md:w-1/2 md:pl-12">
-                    <span class="inline-block bg-white bg-opacity-20 text-white font-semibold px-4 py-2 rounded-full mb-4">Comunidad</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Únete a la mayor <span class="bg-clip-text text-transparent bg-gradient-to-r from-accent to-white">red de entrenadores</span> de fútbol formativo</h2>
-                    <p class="text-xl mb-8 text-blue-100">Conecta con miles de entrenadores apasionados por el desarrollo de jóvenes talentos. Comparte experiencias, resuelve dudas y crece profesionalmente en un entorno colaborativo.</p>
+                <div class="lg:w-1/2">
+                    <span class="inline-block bg-aiLight bg-opacity-10 text-ai font-semibold px-4 py-2 rounded-full mb-4">Comunidad</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">Comunidad GameCoach AI</h2>
+                    <p class="text-xl mb-8 text-gray-600">Conecta con otros entrenadores innovadores que están transformando el fútbol formativo con inteligencia artificial.</p>
                     
                     <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-white bg-opacity-20 p-3 rounded-lg mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                        <div class="flex items-start bg-gray-50 p-5 rounded-xl">
+                            <div class="flex-shrink-0 bg-ai rounded-xl p-3 text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <div>
-                                <h3 class="text-lg font-semibold">Foros Especializados</h3>
-                                <p class="text-blue-100">Discute temas específicos con expertos en cada categoría formativa.</p>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-dark">Foros con Moderación AI</h3>
+                                <p class="text-gray-600">Discusiones organizadas automáticamente por temas y relevancia.</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-white bg-opacity-20 p-3 rounded-lg mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        <div class="flex items-start bg-gray-50 p-5 rounded-xl">
+                            <div class="flex-shrink-0 bg-ai rounded-xl p-3 text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
                                 </svg>
                             </div>
-                            <div>
-                                <h3 class="text-lg font-semibold">Webinars Mensuales</h3>
-                                <p class="text-blue-100">Aprende de los mejores con sesiones en vivo y en directo.</p>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-dark">Webinars con Expertos</h3>
+                                <p class="text-gray-600">Sesiones en vivo con los mejores entrenadores y analistas.</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-white bg-opacity-20 p-3 rounded-lg mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        <div class="flex items-start bg-gray-50 p-5 rounded-xl">
+                            <div class="flex-shrink-0 bg-ai rounded-xl p-3 text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <div>
-                                <h3 class="text-lg font-semibold">Biblioteca Colaborativa</h3>
-                                <p class="text-blue-100">Accede a cientos de recursos creados por otros entrenadores.</p>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-dark">Retos Mensuales</h3>
+                                <p class="text-gray-600">Situaciones reales para resolver con la comunidad y la AI.</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-white bg-opacity-20 p-3 rounded-lg mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        <div class="flex items-start bg-gray-50 p-5 rounded-xl">
+                            <div class="flex-shrink-0 bg-ai rounded-xl p-3 text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
                                 </svg>
                             </div>
-                            <div>
-                                <h3 class="text-lg font-semibold">Soporte 24/7</h3>
-                                <p class="text-blue-100">Resuelve tus dudas con nuestro equipo y la comunidad.</p>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-dark">Biblioteca Colaborativa</h3>
+                                <p class="text-gray-600">Recursos compartidos y validados por nuestra AI.</p>
                             </div>
                         </div>
                     </div>
-                    
-                    <a href="#contacto" class="inline-block mt-8 bg-white hover:bg-gray-100 text-primary font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">Únete Ahora</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section id="precios" class="py-20 bg-gray-50">
+    <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="inline-block bg-primary bg-opacity-10 text-primary font-semibold px-4 py-2 rounded-full mb-4">Planes</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Elige el plan perfecto para <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">tu crecimiento</span></h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Desde entrenadores independientes hasta academias completas, tenemos una solución para cada necesidad</p>
+                <span class="inline-block bg-aiLight bg-opacity-10 text-ai font-semibold px-4 py-2 rounded-full mb-4">Planes</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Planes GameCoach AI</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Elige el plan que mejor se adapte a tus necesidades como entrenador</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="bg-white p-8 rounded-2xl shadow-md pricing-card border-2 border-gray-200 hover:border-primary">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Principiante</h3>
-                    <p class="text-gray-600 mb-6">Ideal para empezar</p>
+                <!-- Plan Iniciación -->
+                <div class="pricing-card p-8 rounded-xl border border-gray-200 transform hover:scale-105">
+                    <h3 class="text-2xl font-bold text-dark mb-2">Iniciación</h3>
+                    <p class="text-gray-600 mb-6">Perfecto para empezar con la AI</p>
                     <div class="mb-6">
-                        <span class="text-4xl font-bold text-gray-800">€19</span>
+                        <span class="text-4xl font-bold text-dark">€9</span>
                         <span class="text-gray-600">/mes</span>
                     </div>
                     <ul class="space-y-3 mb-8">
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                             </svg>
-                            <span class="text-gray-700">Generador básico de sesiones</span>
+                            Análisis básico de partidos
                         </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                             </svg>
-                            <span class="text-gray-700">Análisis de 5 jugadores</span>
+                            5 consultas AI/mes
                         </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                             </svg>
-                            <span class="text-gray-700">Acceso a comunidad básica</span>
+                            Acceso a comunidad básica
                         </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        <li class="flex items-center text-gray-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                             </svg>
-                            <span class="text-gray-400">Certificación digital</span>
+                            Reportes avanzados
                         </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        <li class="flex items-center text-gray-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                             </svg>
-                            <span class="text-gray-400">Webinars exclusivos</span>
+                            Asistente AI ilimitado
                         </li>
                     </ul>
-                    <a href="#contacto" class="block w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 px-4 rounded-lg text-center transition-all duration-300">Empezar Ahora</a>
+                    <a href="#contacto" class="block w-full bg-gray-200 hover:bg-gray-300 text-dark font-bold py-3 px-4 rounded-lg text-center transition duration-300">Empezar Ahora</a>
                 </div>
                 
-                <div class="bg-white p-8 rounded-2xl shadow-xl pricing-card border-2 border-primary relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">POPULAR</div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Profesional</h3>
-                    <p class="text-gray-600 mb-6">Para entrenadores comprometidos</p>
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold text-gray-800">€49</span>
-                        <span class="text-gray-600">/mes</span>
+                <!-- Plan Profesional -->
+                <div class="pricing-card p-8 rounded-xl bg-gradient-to-b from-ai to-aiDark text-white transform hover:scale-105 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-accent text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">POPULAR</div>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-2">Profesional</h3>
+                        <p class="text-purple-100 mb-6">Para entrenadores comprometidos</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold">€29</span>
+                            <span class="text-purple-100">/mes</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Análisis completo de partidos
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                30 consultas AI/mes
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Reportes personalizados
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Acceso completo a la comunidad
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Webinars exclusivos
+                            </li>
+                        </ul>
+                        <a href="#contacto" class="block w-full bg-white hover:bg-gray-100 text-ai font-bold py-3 px-4 rounded-lg text-center transition duration-300">Elegir Plan</a>
                     </div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                            </svg>
-                            <span class="text-gray-700">Generador avanzado de sesiones</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                            </svg>
-                            <span class="text-gray-700">Análisis de 20 jugadores</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                            </svg>
-                            <span class="text-gray-700">Acceso completo a la comunidad</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                            </svg>
-                            <span class="text-gray-700">Certificación digital</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                            </svg>
-                            <span class="text-gray-700">Webinars mensuales</span>
-                        </li>
-                    </ul>
-                    <a href="#contacto" class="block w-full bg-primary hover:bg-secondary text-white font-bold py-3 px-4 rounded-lg text-center transition-all duration-300 glow">Elegir Plan</a>
+                    <div class="absolute -bottom-20 -right-20 w-40 h-40 bg-white bg-opacity-10 rounded-full"></div>
+                    <div class="absolute -top-20 -left-20 w-40 h-40 bg-white bg-opacity-10 rounded-full"></div>
                 </div>
                 
-                <div class="bg-white p-8 rounded-2xl shadow-md pricing-card border-2 border-gray-200 hover:border-accent">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Academia</h3>
+                <!-- Plan Academia -->
+                <div class="pricing-card p-8 rounded-xl border border-gray-200 transform hover:scale-105">
+                    <h3 class="text-2xl font-bold text-dark mb-2">Academia</h3>
                     <p class="text-gray-600 mb-6">Para clubs y escuelas</p>
                     <div class="mb-6">
-                        <span class="text-4xl font-bold text-gray-800">€99</span>
+                        <span class="text-4xl font-bold text-dark">€79</span>
                         <span class="text-gray-600">/mes</span>
                     </div>
                     <ul class="space-y-3 mb-8">
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                             </svg>
-                            <span class="text-gray-700">Licencias para 5 entrenadores</span>
+                            Licencias para 5 entrenadores
                         </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                             </svg>
-                            <span class="text-gray-700">Análisis ilimitado de jugadores</span>
+                            Consultas AI ilimitadas
                         </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                             </svg>
-                            <span class="text-gray-700">Sistema de gestión para academias</span>
+                            Dashboard de gestión
                         </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                             </svg>
-                            <span class="text-gray-700">Soporte prioritario</span>
+                            Soporte prioritario
                         </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                             </svg>
-                            <span class="text-gray-700">Informes institucionales</span>
+                            Auditoría AI personalizada
                         </li>
                     </ul>
-                    <a href="#contacto" class="block w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 px-4 rounded-lg text-center transition-all duration-300">Contactar Ventas</a>
+                    <a href="#contacto" class="block w-full bg-gray-200 hover:bg-gray-300 text-dark font-bold py-3 px-4 rounded-lg text-center transition duration-300">Contactar Ventas</a>
                 </div>
             </div>
             
-            <div class="mt-12 text-center">
-                <p class="text-gray-600">¿Necesitas un plan personalizado? <a href="#contacto" class="text-primary font-semibold hover:underline">Contáctanos</a></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="inline-block bg-primary bg-opacity-10 text-primary font-semibold px-4 py-2 rounded-full mb-4">FAQ</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Preguntas <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">frecuentes</span></h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Resuelve tus dudas sobre nuestra plataforma</p>
-            </div>
-            
-            <div class="max-w-3xl mx-auto space-y-4">
-                <div class="border border-gray-200 rounded-xl overflow-hidden">
-                    <button class="faq-question w-full flex justify-between items-center p-6 text-left bg-gray-50 hover:bg-gray-100 transition duration-300">
-                        <h3 class="text-lg font-medium text-gray-800">¿Necesito experiencia previa para usar GameCoach AI?</h3>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer hidden px-6 pb-6 pt-2 bg-white">
-                        <p class="text-gray-600">No, GameCoach AI está diseñado para adaptarse a todos los niveles. Nuestra interfaz es intuitiva y ofrece tutoriales paso a paso. Además, la IA se ajusta a tu nivel de experiencia, proporcionando recomendaciones adecuadas tanto si eres principiante como si tienes años de experiencia.</p>
-                    </div>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl overflow-hidden">
-                    <button class="faq-question w-full flex justify-between items-center p-6 text-left bg-gray-50 hover:bg-gray-100 transition duration-300">
-                        <h3 class="text-lg font-medium text-gray-800">¿Cómo funciona el análisis de jugadores con IA?</h3>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer hidden px-6 pb-6 pt-2 bg-white">
-                        <p class="text-gray-600">Nuestro sistema utiliza visión por computadora para analizar videos de entrenamientos y partidos. Identifica patrones de movimiento, posicionamiento, habilidades técnicas y toma de decisiones. Luego, genera informes detallados con métricas objetivas y recomendaciones personalizadas para cada jugador.</p>
-                    </div>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl overflow-hidden">
-                    <button class="faq-question w-full flex justify-between items-center p-6 text-left bg-gray-50 hover:bg-gray-100 transition duration-300">
-                        <h3 class="text-lg font-medium text-gray-800">¿Puedo cancelar mi suscripción en cualquier momento?</h3>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer hidden px-6 pb-6 pt-2 bg-white">
-                        <p class="text-gray-600">Sí, puedes cancelar tu suscripción en cualquier momento sin penalización. Tendrás acceso hasta el final del período por el que hayas pagado. No creemos en contratos engañosos o de permanencia.</p>
-                    </div>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl overflow-hidden">
-                    <button class="faq-question w-full flex justify-between items-center p-6 text-left bg-gray-50 hover:bg-gray-100 transition duration-300">
-                        <h3 class="text-lg font-medium text-gray-800">¿Los certificados tienen validez oficial?</h3>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer hidden px-6 pb-6 pt-2 bg-white">
-                        <p class="text-gray-600">Nuestros certificados son reconocidos por diversas asociaciones de fútbol formativo y tienen validez curricular. Sin embargo, para certificaciones oficiales de tu federación local, deberás completar sus requisitos específicos. Estamos trabajando en acuerdos con más federaciones para ampliar la validez oficial.</p>
-                    </div>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl overflow-hidden">
-                    <button class="faq-question w-full flex justify-between items-center p-6 text-left bg-gray-50 hover:bg-gray-100 transition duration-300">
-                        <h3 class="text-lg font-medium text-gray-800">¿Qué dispositivos son compatibles?</h3>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer hidden px-6 pb-6 pt-2 bg-white">
-                        <p class="text-gray-600">GameCoach AI es completamente responsive y funciona en cualquier dispositivo con navegador web (ordenadores, tablets y smartphones). Además, tenemos aplicaciones nativas para iOS y Android para el análisis en campo y la captura de datos.</p>
-                    </div>
-                </div>
+            <div class="mt-8 text-center text-gray-600">
+                <p>¿Necesitas un plan personalizado? <a href="#contacto" class="text-ai hover:underline font-medium">Contáctanos</a> para crear una solución a tu medida.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Form Section -->
-    <section id="contacto" class="py-20 bg-gray-50">
+    <section id="contacto" class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200">
                 <div class="md:flex">
-                    <div class="md:w-1/2 bg-gradient-to-b from-primary to-secondary text-white p-8 md:p-12">
-                        <h2 class="text-3xl font-bold mb-6">Contáctanos</h2>
-                        <p class="mb-8 text-blue-100 text-lg">¿Listo para revolucionar tu método de entrenamiento? Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas.</p>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 bg-white bg-opacity-20 p-3 rounded-lg mr-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-lg">Dirección</h3>
-                                    <p class="text-blue-100">Calle Innovación 42, Parque Tecnológico, Madrid</p>
-                                </div>
-                            </div>
+                    <div class="md:w-1/2 bg-gradient-to-b from-ai to-aiDark text-white p-8 md:p-12 relative overflow-hidden">
+                        <div class="relative z-10">
+                            <h2 class="text-3xl font-bold mb-6">Contáctanos</h2>
+                            <p class="mb-6 text-purple-100">¿Listo para revolucionar tu metodología con GameCoach AI? Completa el formulario y nos pondremos en contacto contigo.</p>
                             
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 bg-white bg-opacity-20 p-3 rounded-lg mr-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                                    </svg>
+                            <div class="space-y-4">
+                                <div class="flex items-start bg-white bg-opacity-10 p-4 rounded-lg">
+                                    <div class="flex-shrink-0 bg-purple-600 rounded-lg p-2 mt-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <div class="ml-3">
+                                        <h3 class="font-semibold">Dirección</h3>
+                                        <p class="text-purple-100">Calle de la Innovación 42, Barcelona</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 class="font-semibold text-lg">Teléfono</h3>
-                                    <p class="text-blue-100">+34 910 123 456</p>
+                                
+                                <div class="flex items-start bg-white bg-opacity-10 p-4 rounded-lg">
+                                    <div class="flex-shrink-0 bg-purple-600 rounded-lg p-2 mt-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                        </svg>
+                                    </div>
+                                    <div class="ml-3">
+                                        <h3 class="font-semibold">Teléfono</h3>
+                                        <p class="text-purple-100">+34 123 456 789</p>
+                                    </div>
                                 </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 bg-white bg-opacity-20 p-3 rounded-lg mr-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-lg">Email</h3>
-                                    <p class="text-blue-100">xpalafoix@hotmail.com</p>
+                                
+                                <div class="flex items-start bg-white bg-opacity-10 p-4 rounded-lg">
+                                    <div class="flex-shrink-0 bg-purple-600 rounded-lg p-2 mt-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                        </svg>
+                                    </div>
+                                    <div class="ml-3">
+                                        <h3 class="font-semibold">Email</h3>
+                                        <p class="text-purple-100">xpalafoix@hotmail.com</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-white bg-opacity-10 rounded-full"></div>
+                        <div class="absolute -top-20 -left-20 w-64 h-64 bg-white bg-opacity-10 rounded-full"></div>
                     </div>
                     
                     <div class="md:w-1/2 p-8 md:p-12">
-                        <form id="contactForm" class="space-y-6">
+                        <form id="contactForm" action="https://formspree.io/f/xpalafoix@hotmail.com" method="POST" class="space-y-6">
                             <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo *</label>
-                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-ai focus:border-transparent transition duration-300">
                             </div>
                             
                             <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-ai focus:border-transparent transition duration-300">
                             </div>
                             
                             <div>
                                 <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
-                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-ai focus:border-transparent transition duration-300">
                             </div>
                             
                             <div>
-                                <label for="interest" class="block text-sm font-medium text-gray-700 mb-1">¿Qué te interesa más?</label>
-                                <select id="interest" name="interest" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                                <label for="interest" class="block text-sm font-medium text-gray-700 mb-1">Interés Principal</label>
+                                <select id="interest" name="interest" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-ai focus:border-transparent transition duration-300">
                                     <option value="">Selecciona una opción</option>
-                                    <option value="generador">Generador de Sesiones con IA</option>
-                                    <option value="analitica">Analítica de Jugadores</option>
-                                    <option value="comunidad">Comunidad de Entrenadores</option>
-                                    <option value="certificacion">Programas de Certificación</option>
-                                    <option value="empresa">Solución para Empresas/Academias</option>
+                                    <option value="plan_iniciacion">Plan Iniciación (€9/mes)</option>
+                                    <option value="plan_profesional">Plan Profesional (€29/mes)</option>
+                                    <option value="plan_academia">Plan Academia (€79/mes)</option>
+                                    <option value="demo_ai">Demo de la Tecnología AI</option>
                                     <option value="otros">Otros</option>
                                 </select>
                             </div>
                             
                             <div>
                                 <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
-                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all"></textarea>
+                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-ai focus:border-transparent transition duration-300"></textarea>
                             </div>
                             
-                            <div class="flex items-start">
-                                <div class="flex items-center h-5">
-                                    <input id="privacy" name="privacy" type="checkbox" required class="focus:ring-primary h-4 w-4 text-primary border-gray-300 rounded">
-                                </div>
-                                <div class="ml-3 text-sm">
-                                    <label for="privacy" class="text-gray-700">
-                                        Acepto la <a href="#" class="text-primary font-medium hover:underline">política de privacidad</a> y los <a href="#" class="text-primary font-medium hover:underline">términos de servicio</a>
-                                    </label>
-                                </div>
+                            <div class="flex items-center">
+                                <input id="privacy" name="privacy" type="checkbox" required class="h-4 w-4 text-ai focus:ring-ai border-gray-300 rounded">
+                                <label for="privacy" class="ml-2 block text-sm text-gray-700">
+                                    Acepto la <a href="#" class="text-ai hover:underline">política de privacidad</a>
+                                </label>
                             </div>
                             
                             <div>
-                                <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                                <button type="submit" class="w-full bg-ai hover:bg-aiDark text-white font-bold py-3 px-4 rounded-lg transition duration-300 glow">
                                     Enviar Mensaje
                                 </button>
                             </div>
@@ -815,34 +992,144 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-16 bg-gradient-to-r from-primary to-secondary text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para Transformar tu Método de Entrenamiento?</h2>
-            <p class="text-xl mb-8 max-w-3xl mx-auto">Únete a la revolución del fútbol formativo con inteligencia artificial. Prueba GameCoach AI gratis durante 14 días.</p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#contacto" class="inline-block bg-white hover:bg-gray-100 text-primary font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">Prueba Gratis</a>
-                <a href="#features" class="inline-block bg-transparent border-2 border-white hover:bg-white hover:bg-opacity-10 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">Ver Características</a>
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-aiLight bg-opacity-10 text-ai font-semibold px-4 py-2 rounded-full mb-4">FAQ</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Preguntas Frecuentes</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Resuelve tus dudas sobre GameCoach AI</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="border border-gray-200 rounded-lg overflow-hidden bg-white">
+                    <button class="faq-question w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition duration-300">
+                        <h3 class="text-lg font-medium text-dark">¿Necesito conocimientos técnicos para usar GameCoach AI?</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-ai transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 pt-2">
+                        <p class="text-gray-600">No, GameCoach AI está diseñado para ser intuitivo y fácil de usar. Nuestra interfaz es amigable y guía a los entrenadores paso a paso. Además, ofrecemos tutoriales interactivos para que puedas sacar el máximo provecho desde el primer día.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden bg-white">
+                    <button class="faq-question w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition duration-300">
+                        <h3 class="text-lg font-medium text-dark">¿Cómo garantizan la privacidad de mis datos y estrategias?</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-ai transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 pt-2">
+                        <p class="text-gray-600">Utilizamos tecnología de encriptación de última generación y cumplimos con el RGPD. Tus datos y estrategias son tuyos y no los compartimos con nadie. Puedes configurar los niveles de privacidad para cada proyecto o análisis que realices.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden bg-white">
+                    <button class="faq-question w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition duration-300">
+                        <h3 class="text-lg font-medium text-dark">¿Qué diferencia a GameCoach AI de otras herramientas de análisis?</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-ai transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 pt-2">
+                        <p class="text-gray-600">GameCoach AI no solo muestra datos, sino que los interpreta y ofrece recomendaciones accionables. Nuestro sistema aprende de cada interacción y se adapta a tu estilo de juego y filosofía. Además, combinamos tecnología avanzada con pedagogía formativa.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden bg-white">
+                    <button class="faq-question w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition duration-300">
+                        <h3 class="text-lg font-medium text-dark">¿Puedo probar la plataforma antes de comprometerme?</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-ai transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 pt-2">
+                        <p class="text-gray-600">Sí, ofrecemos una prueba gratuita de 14 días sin necesidad de tarjeta de crédito. Podrás acceder a todas las funciones del plan Iniciación y recibir asesoramiento de nuestro equipo para sacarle el máximo partido.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden bg-white">
+                    <button class="faq-question w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition duration-300">
+                        <h3 class="text-lg font-medium text-dark">¿Ofrecen formación sobre cómo usar la plataforma?</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-ai transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 pt-2">
+                        <p class="text-gray-600">Sí, incluimos videotutoriales, guías interactivas y webinars semanales. Además, nuestro equipo de soporte está disponible para resolver cualquier duda y ofrecer sesiones personalizadas si lo necesitas.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-dark to-gray-900 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para Transformar tu Metodología con AI?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Únete a la revolución del fútbol formativo inteligente y lleva tu entrenamiento al siguiente nivel</p>
+            <a href="#contacto" class="inline-block bg-ai hover:bg-aiDark text-white font-bold py-4 px-8 rounded-lg text-lg transition duration-300 pulse-animation glow">Empieza tu Prueba Gratis</a>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white pt-16 pb-8">
+    <footer class="footer-gradient text-white py-12">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <div class="flex items-center mb-6">
-                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
+                    <div class="flex items-center mb-4">
+                        <div class="bg-ai p-2 rounded-lg mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                             </svg>
                         </div>
-                        <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">GameCoach AI</span>
+                        <span class="text-xl font-bold">Game<span class="text-aiLight">Coach</span> <span class="text-aiLight">AI</span></span>
                     </div>
-                    <p class="text-gray-400 mb-6">Revolucionando el fútbol formativo con inteligencia artificial. Formando a la próxima generación de entrenadores.</p>
-                    <div class="flex space-x-4">
+                    <p class="text-gray-400">Tecnología de inteligencia artificial aplicada al fútbol formativo para entrenadores innovadores.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-gray-400 hover:text-white transition duration-300">Inicio</a></li>
+                        <li><a href="#beneficios" class="text-gray-400 hover:text-white transition duration-300">Beneficios</a></li>
+                        <li><a href="#decisiones" class="text-gray-400 hover:text-white transition duration-300">Toma de Decisiones</a></li>
+                        <li><a href="#tecnologia" class="text-gray-400 hover:text-white transition duration-300">Tecnología</a></li>
+                        <li><a href="#contacto" class="text-gray-400 hover:text-white transition duration-300">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Recursos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Webinars</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Guías Gratuitas</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contacto</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                            </svg>
+                            xpalafoix@hotmail.com
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                            </svg>
+                            Calle de la Innovación 42, Barcelona
+                        </li>
+                    </ul>
+                    
+                    <div class="flex space-x-4 mt-4">
                         <a href="#" class="text-gray-400 hover:text-white transition duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
@@ -863,55 +1150,12 @@
                                 <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
                             </svg>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
-                            </svg>
-                        </a>
                     </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-6">Plataforma</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#features" class="text-gray-400 hover:text-white transition duration-300">Características</a></li>
-                        <li><a href="#tecnologia" class="text-gray-400 hover:text-white transition duration-300">Tecnología</a></li>
-                        <li><a href="#precios" class="text-gray-400 hover:text-white transition duration-300">Precios</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Casos de Éxito</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Demo</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-6">Recursos</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Blog</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Webinars</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Guías</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Documentación</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">API</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-6">Empresa</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Sobre Nosotros</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Equipo</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Trabaja con Nosotros</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Contacto</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Prensa</a></li>
-                    </ul>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">&copy; 2023 GameCoach AI. Todos los derechos reservados.</p>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Términos</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacidad</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Cookies</a>
-                </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 GameCoach AI. Todos los derechos reservados. <a href="#" class="hover:text-white">Términos y Condiciones</a> | <a href="#" class="hover:text-white">Política de Privacidad</a></p>
             </div>
         </div>
     </footer>
@@ -928,35 +1172,6 @@
             });
         });
 
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Here you would typically send the form data to your endpoint
-            // For now, we'll just show an alert
-            alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
-            this.reset();
-            
-            // In a real implementation, you would use fetch or XMLHttpRequest to send the data
-            // Example:
-            /*
-            const formData = new FormData(this);
-            fetch('YOUR_ENDPOINT_HERE', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
-                this.reset();
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.');
-            });
-            */
-        });
-
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -967,6 +1182,50 @@
                 });
             });
         });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
+                    this.reset();
+                } else {
+                    throw new Error('Error en el envío del formulario');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.');
+            });
+        });
+
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate__animated');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animate__fadeIn');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
     </script>
 </body>
 </html>
